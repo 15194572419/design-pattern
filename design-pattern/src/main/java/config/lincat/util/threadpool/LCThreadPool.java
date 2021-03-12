@@ -1,4 +1,4 @@
-package util.threadpool;
+package config.lincat.util.threadpool;
 
 import java.util.concurrent.*;
 
@@ -7,7 +7,7 @@ import java.util.concurrent.*;
  * @description 由于阿里开发不建议直接使用java内置的线程池，以避免资源耗尽问题。在此使用单例模式，封装线程池。
  * @author 帆哥续写辉煌
  */
-public class LinCatThreadPool {
+public class LCThreadPool {
     /**
      * 单例线程池
      */
@@ -16,7 +16,7 @@ public class LinCatThreadPool {
     /**
      * 空构造函数，必写，因为默认构造函数的访问限制符是public。在此初始化threadPool实例
      */
-    private LinCatThreadPool(){
+    private LCThreadPool(){
         threadPool = new ThreadPoolExecutor(5,
                 100,
                 1L,
@@ -32,7 +32,7 @@ public class LinCatThreadPool {
      */
     public static synchronized ExecutorService getThreadPool(){
         if(threadPool == null){
-           new LinCatThreadPool();
+           new LCThreadPool();
         }
         return  threadPool;
     }

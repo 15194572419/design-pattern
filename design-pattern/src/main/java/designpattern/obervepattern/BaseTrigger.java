@@ -1,6 +1,6 @@
 package designpattern.obervepattern;
 
-import util.threadpool.LinCatThreadPool;
+import config.lincat.util.threadpool.LCThreadPool;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 
@@ -93,7 +93,7 @@ public abstract class BaseTrigger {
      */
     private void asyncNotifyBindResponders(){
 
-        ExecutorService threadPool = LinCatThreadPool.getThreadPool();
+        ExecutorService threadPool = LCThreadPool.getThreadPool();
 
         for(BaseResponder baseResponder :this.bindResponders){
             threadPool.execute(()-> baseResponder.response());
